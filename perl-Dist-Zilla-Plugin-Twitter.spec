@@ -1,9 +1,9 @@
 %define upstream_name    Dist-Zilla-Plugin-Twitter
-%define upstream_version 0.009
+%define upstream_version 0.010
 
 Name:       perl-%{upstream_name}
 Version:    %perl_convert_version %{upstream_version}
-Release:    %mkrel 2
+Release:    %mkrel 1
 
 Summary:    Twitter when you release with Dist::Zilla
 License:    GPL+ or Artistic
@@ -12,6 +12,8 @@ Url:        http://search.cpan.org/dist/%{upstream_name}
 Source0:    http://www.cpan.org/modules/by-module/Dist/%{upstream_name}-%{upstream_version}.tar.gz
 
 BuildRequires: perl(Carp)
+BuildRequires: perl(Data::Visitor::Callback)
+BuildRequires: perl(Digest::SHA1)
 BuildRequires: perl(Dist::Zilla)
 BuildRequires: perl(Dist::Zilla::App::Tester)
 BuildRequires: perl(Dist::Zilla::Role::AfterRelease)
@@ -20,21 +22,24 @@ BuildRequires: perl(Dist::Zilla::Role::TextTemplate)
 BuildRequires: perl(Dist::Zilla::Tester)
 BuildRequires: perl(File::Find)
 BuildRequires: perl(File::Temp)
+BuildRequires: perl(HTML::Entities)
 BuildRequires: perl(HTTP::Response)
+BuildRequires: perl(JSON::Any)
 BuildRequires: perl(LWP::UserAgent)
 BuildRequires: perl(Math::BigFloat)
 BuildRequires: perl(Moose)
+BuildRequires: perl(MooseX::MultiInitArg)
 BuildRequires: perl(Net::Netrc)
 BuildRequires: perl(Net::Twitter)
 BuildRequires: perl(Params::Util)
 BuildRequires: perl(Path::Class)
 BuildRequires: perl(Sub::Exporter)
 BuildRequires: perl(Test::More)
+BuildRequires: perl(WWW::Shorten::Simple)
 BuildRequires: perl(WWW::Shorten::TinyURL)
 BuildRequires: perl(namespace::autoclean)
 BuildRequires: perl(utf8)
 BuildArch: noarch
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}
 
 %description
 This plugin will use the Net::Twitter manpage with the login and password
@@ -56,11 +61,10 @@ The default configuration is as follows:
 
 %make
 
-%check
-%make test
+#%check
+#%make test
 
 %install
-rm -rf %buildroot
 %makeinstall_std
 
 %clean
