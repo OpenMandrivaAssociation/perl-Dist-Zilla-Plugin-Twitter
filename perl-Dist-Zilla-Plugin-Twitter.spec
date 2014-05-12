@@ -1,11 +1,12 @@
 %define upstream_name    Dist-Zilla-Plugin-Twitter
-%define upstream_version 0.010
+%define upstream_version 0.025
 
 Name:		perl-%{upstream_name}
 Version:	%perl_convert_version %{upstream_version}
-Release:	2
+Release:	1
 
 Summary:	Twitter when you release with Dist::Zilla
+
 License:	GPL+ or Artistic
 Group:		Development/Perl
 Url:		http://search.cpan.org/dist/%{upstream_name}
@@ -66,4 +67,5 @@ perl Makefile.PL INSTALLDIRS=vendor
 %doc Changes LICENSE META.yml META.json README
 %{_mandir}/man3/*
 %{perl_vendorlib}/*
+
 
