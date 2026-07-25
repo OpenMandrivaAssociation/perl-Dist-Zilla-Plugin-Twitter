@@ -1,17 +1,17 @@
 %define upstream_name    Dist-Zilla-Plugin-Twitter
-%define upstream_version 0.025
+%define upstream_version 0.026
 
 Name:		perl-%{upstream_name}
-Version:	%perl_convert_version %{upstream_version}
-Release:	3
+Version:	%{upstream_version}
+Release:	1
 
 Summary:	Twitter when you release with Dist::Zilla
 
 
 License:	GPL+ or Artistic
 Group:		Development/Perl
-Url:		https://search.cpan.org/dist/%{upstream_name}
-Source0:	http://www.cpan.org/modules/by-module/Dist/%{upstream_name}-%{upstream_version}.tar.gz
+Url:		https://github.com/dagolden/dist-zilla-plugin-twitter
+Source0:	https://cpan.metacpan.org/authors/id/D/DO/DOHERTY/Dist-Zilla-Plugin-Twitter-%{upstream_version}.tar.gz
 
 BuildRequires:	make
 BuildRequires:	perl-devel
